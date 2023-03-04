@@ -1,5 +1,5 @@
 export interface Keys {
   clientToken: string;
-  lolPlayerRoleID: string;
-  generalChannelID: string;
+  roleID: string;
+  channelID: string;
 }

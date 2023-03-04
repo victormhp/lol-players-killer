@@ -2,8 +2,8 @@ import { event, sendAngryMessage, sendHappyMessage } from '../utils';
 import { TextChannel } from 'discord.js';
 import keys from '../keys';
 
-const LOL_PLAYER_ROLE = keys.lolPlayerRoleID;
-const CHANNEL_ID = keys.generalChannelID;
+const LOL_PLAYER_ROLE = keys.roleID;
+const CHANNEL_ID = keys.channelID;
 
 export default event('presenceUpdate', ({ log }, oldPresence, newPresence) => {
   const member = newPresence.member;
