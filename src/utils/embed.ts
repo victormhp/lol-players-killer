@@ -1,7 +1,7 @@
 import { EmbedBuilder, AttachmentBuilder, TextChannel } from 'discord.js';
 import { resolve } from 'path';
 
-const imagesPath = resolve(__dirname, '../assets');
+const imagesPath = resolve(__dirname, '../../images');
 
 export function sendAngryMessage(channel: TextChannel, username: string) {
   const image = new AttachmentBuilder(`${imagesPath}/angry.png`);
