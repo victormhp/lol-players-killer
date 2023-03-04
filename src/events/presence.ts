@@ -7,7 +7,8 @@ const CHANNEL_ID = keys.channelID;
 
 export default event('presenceUpdate', ({ log }, oldPresence, newPresence) => {
   const member = newPresence.member as GuildMember;
-  const username = member?.user?.username as string;
+  const userPing = member?.user.toString();
+  const username = member?.user.username;
   const channel = member?.guild.channels.cache.get(CHANNEL_ID) as TextChannel;
 
   const isPlayingLol = newPresence?.activities.some(
@@ -18,13 +19,13 @@ export default event('presenceUpdate', ({ log }, oldPresence, newPresence) => {
   if (isPlayingLol && !hasLolPlayerRole) {
     // Add role to Lol players
     member?.roles.add(LOL_PLAYER_ROLE).catch(console.error);
-    sendAngryMessage(channel, username);
+    sendAngryMessage(channel, userPing);
     log(`${username} is playing League of Legends...`);
   } else {
     if (hasLolPlayerRole) {
       // Remove role once he/she stops playing lol
       member?.roles.remove(LOL_PLAYER_ROLE).catch(console.error);
-      sendHappyMessage(channel, username);
+      sendHappyMessage(channel, userPing);
       log(`${username} QUIT playing League of Legends...`);
     }
   }
