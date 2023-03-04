@@ -1,12 +1,12 @@
 import { event, sendAngryMessage, sendHappyMessage } from '../utils';
-import { TextChannel } from 'discord.js';
+import { GuildMember, TextChannel } from 'discord.js';
 import keys from '../keys';
 
 const LOL_PLAYER_ROLE = keys.roleID;
 const CHANNEL_ID = keys.channelID;
 
 export default event('presenceUpdate', ({ log }, oldPresence, newPresence) => {
-  const member = newPresence.member;
+  const member = newPresence.member as GuildMember;
   const username = member?.user?.username as string;
   const channel = member?.guild.channels.cache.get(CHANNEL_ID) as TextChannel;
 
@@ -15,7 +15,7 @@ export default event('presenceUpdate', ({ log }, oldPresence, newPresence) => {
   );
   const hasLolPlayerRole = member?.roles.cache.has(LOL_PLAYER_ROLE);
 
-  if (isPlayingLol) {
+  if (isPlayingLol && !hasLolPlayerRole) {
     // Add role to Lol players
     member?.roles.add(LOL_PLAYER_ROLE).catch(console.error);
     sendAngryMessage(channel, username);
