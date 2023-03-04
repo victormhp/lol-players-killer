@@ -32,7 +32,7 @@ In order to setup the project you need to have install node and pnpm:
    git clone https://github.com/victormhp/lol-players-killer.git
  ```
  ```
-   cd lol-players-killer.git
+   cd lol-players-killer
  ```
  ```
    npm install
