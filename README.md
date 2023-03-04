@@ -22,6 +22,7 @@ Some of the technologies used in this project are the following:
 - Typescript
 - Node
 - DiscordJS
+- pnpm
 
 
 ## Setup
@@ -35,7 +36,7 @@ In order to setup the project you need to have install node and pnpm:
    cd lol-players-killer
  ```
  ```
-   npm install
+   pnpm install
  ```
 
 
