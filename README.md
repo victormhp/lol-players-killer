@@ -43,22 +43,23 @@ In order to setup the project you need to have install node and pnpm:
 To configure the bot, you will need to create a .env file in the root directory of the project. You can use the .example.env file as a template:
 
 ```
-DISCORD_TOKEN=<your Discord bot token>
-ROLE_ID=<the ID of the role you want to assign>
-CHANNEL_ID=<the ID of the text channel where messages will be sent>
+CLIENT_TOKEN="your_token"
+LOL_PLAYER_ROL_ID="your _role_id"
+CHANNEL_ID="your_text_channel_id"
 ```
 
 **Note:** to obtain the IDs you must activate Discord's developer mode.
 
 
 ## Running the Bot
-To start the bot, run the following command:
+To start the bot, run the following commands:
 
+```
+npm run build
+```
 ```
 npm run start
 ```
-
-By default, the bot will listen for messages on the same server it was invited to. If you want to change this behavior, you can modify the GUILD_ID variable in the .env file to match the ID of the server you want the bot to listen to.
 
 ## Stopping the Bot
 To stop the bot, press Ctrl + C in the terminal where it is running.
